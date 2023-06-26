@@ -4,7 +4,7 @@
   "package_short_description": "A description of the package",
   "version": "0.0.1",
   "full_name": "Daniel CH Tan",
-  "email": "",
+  "email": "dtch1997@users.noreply.github.com",
   "github_user_name": "dtch1997",
   "github_repo_name": "{{cookiecutter.package_name}}",
   "license": ["MIT license", "BSD license", "Apache Software License 2.0", "GNU General Public License v3", "Not open source"],
