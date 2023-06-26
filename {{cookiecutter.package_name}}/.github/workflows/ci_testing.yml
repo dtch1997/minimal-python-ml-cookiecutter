@@ -19,10 +19,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Set up Python {% raw %}${{ matrix.python-version }}{% endraw %}
+
         uses: actions/setup-python@v4
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: {% raw %}${{ matrix.python-version }}{% endraw %}
 
       - name: Install dependencies
         run: |
@@ -37,4 +38,4 @@ jobs:
         uses: codecov/codecov-action@v3
         with:
           file: coverage.xml
-          token: ${{ secrets.CODECOV_TOKEN }}
+          token: {% raw %}${{ secrets.CODECOV_TOKEN }}{% endraw %}
