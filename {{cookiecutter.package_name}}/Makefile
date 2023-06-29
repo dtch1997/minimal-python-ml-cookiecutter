@@ -1,13 +1,15 @@
 .venv:
 	python -m venv .venv
+	.venv/bin/python -m pip install --upgrade setuptools pip
+	.venv/bin/python -m pip install pip-tools
 	touch .venv
 
-requirements/base.txt requirements/dev.txt: requirements/base.in requirements/dev.in .venv
-	.venv/bin/python -m pip install --upgrade pip
-	.venv/bin/python -m pip install pip-tools
+requirements/base.txt: requirements/base.in .venv
 	.venv/bin/python -m piptools compile requirements/base.in -o requirements/base.txt
+	touch requirements/dev.txt
+
+requirements/dev.txt: requirements/dev.in .venv
 	.venv/bin/python -m piptools compile requirements/dev.in -o requirements/dev.txt
-	touch requirements/base.txt
 	touch requirements/dev.txt
 
 compile: requirements/base.txt requirements/dev.txt
@@ -19,10 +21,10 @@ compile: requirements/base.txt requirements/dev.txt
 	pre-commit install
 
 test: 
-	.venv/bin/python -m pytest -m pytest tests --cov=llm_curriculum --cov-report=xml
+	.venv/bin/python -m pytest -m pytest tests --cov={{cookiecutter.package_name}} --cov-report=xml
 
 install: .venv compile .install_requires
 
 all: install test
 
-.PHONY: .install_requires install test all
+.PHONY: .install_requires compile install test all
