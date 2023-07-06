@@ -1,12 +1,14 @@
+PYTHON?=python
+
 .venv:
-	python -m venv .venv
+	$(PYTHON) -m venv .venv
 	.venv/bin/python -m pip install --upgrade setuptools pip
 	.venv/bin/python -m pip install pip-tools
 	touch .venv
 
 requirements/base.txt: requirements/base.in .venv
 	.venv/bin/python -m piptools compile requirements/base.in -o requirements/base.txt
-	touch requirements/dev.txt
+	touch requirements/base.txt
 
 requirements/dev.txt: requirements/dev.in .venv
 	.venv/bin/python -m piptools compile requirements/dev.in -o requirements/dev.txt
