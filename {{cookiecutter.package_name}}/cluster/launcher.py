@@ -10,7 +10,7 @@ _LAUNCH_ON_CLUSTER = flags.DEFINE_boolean(
 )
 _GPU = flags.DEFINE_boolean("gpu", False, "If set, use GPU")
 _SINGULARITY_CONTAINER = flags.DEFINE_string(
-    "container", "jax-cuda.sif", "Path to singularity container"
+    "container", "{{cookiecutter.package_name}}-latest.sif", "Path to singularity container"
 )
 
 

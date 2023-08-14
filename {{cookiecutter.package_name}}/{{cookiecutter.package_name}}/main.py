@@ -1,2 +1,2 @@
 if __name__ == "__main__":
-    print("{{cookiecutter.project_name}}")
+    print("{{cookiecutter.package_name}}")
