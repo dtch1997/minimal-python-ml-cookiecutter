@@ -1,0 +1,11 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "{{cookiecutter.project_name}}"
+version = "{{cookiecutter.version}}"
+description = "{{cookiecutter.description}}"
+authors = [{name="{{cookiecutter.full_name}}", email="<{{cookiecutter.email}}>"}]
+license = "MIT"
+readme = "README.md"
