@@ -38,11 +38,11 @@ def main(_):
         spec = xm_cluster.PythonPackage(
             # This is a relative path to the launcher that contains
             # your python package (i.e. the directory that contains pyproject.toml)
-            path=".",
+            path="..",
             # Entrypoint is the python module that you would like to
             # In the implementation, this is translated to
             #   python3 -m py_package.main
-            entrypoint=xm_cluster.ModuleName("py_package.main"),
+            entrypoint=xm_cluster.ModuleName("{{cookiecutter.package_name}}.main"),
         )
 
         # Wrap the python_package to be executing in a singularity container.
