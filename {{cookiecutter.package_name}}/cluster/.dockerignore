@@ -1,0 +1,7 @@
+*.sif
+__pycache__
+*.py[cod]
+/.venv
+/venv
+lxm.toml
+
