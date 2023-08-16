@@ -1,5 +1,7 @@
 # Basic example
 
+This repo uses ![LXM3](https://github.com/ethanluoyc/lxm3) to effortlessly submit jobs to the cluster. 
+
 ## Quickstart
 
 Ensure that `~/.config/lxm3/config.toml` is created.
@@ -34,11 +36,11 @@ make build-singularity
 ## Running Jobs
 
 Launch locally:
-```
+```bash
 lxm3 launch launcher.py 
 ```
 
 Launch on cluster:
-```
+```bash
 LXM_CLUSTER=cs lxm3 launch launcher.py --launch_on_cluster
 ```
